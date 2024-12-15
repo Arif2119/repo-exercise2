@@ -1,0 +1,21 @@
+.grid-container { 
+
+  display: grid; 
+
+  height: 200px; 
+
+  grid-template-areas: "head head"
+
+                        "nav nav"
+
+                        "main main"
+
+                        "footer footer";
+
+                       grid-template-rows: 30px 30px,1fr 30px; 
+
+  grid-template-columns: 150px 1fr; 
+
+} 
+
+ 
