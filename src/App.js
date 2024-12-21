@@ -1,47 +1,74 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Nav from "./Nav";
 import Footer from "./Footer";
-import Header from "./Header";
 import Main from "./Main"; // Updated Main already manages state for BookingForm
-import "./App.css";
-import "./gridtwelve.css";
+import logo from "./logo.png"; // Import the logo
 
-const HomePage = () => (
-  <div>
-    <Header />
-    <main className="App-main">
-      <h1>Welcome to Little Lemon!</h1>
-      <p>Your favorite restaurant for fresh and delicious meals.</p>
+const HomePage = () => {
+  return (
+    <main className="main">
+      {/* Header Section */}
+      <header className="header">
+        <div className="logoContainer">
+          <img className="logo"
+            src={logo} // Use imported logo variable
+            alt="Little Lemon Logo"
+          />
+          <h1 className="title">Little Lemon</h1>
+        </div>
+        <p className="subtiltle">Chicago</p>
+        <p className="">
+          We are a family-owned Mediterranean restaurant, focused on traditional
+          recipes served with a modern twist.
+        </p>
+        <Link to="/booking">
+          <button className="button">Reserve a table</button>
+        </Link>
+      </header>
+
+      {/* Delivery Section */}
+      <section className="deliverySection">
+        <h2 className="deliveryTitle">ORDER FOR DELIVERY!</h2>
+        <div className="categoryButtons">
+          <button className="categoryButton">Lunch</button>
+          <button className="categoryButton">Mains</button>
+          <button className="categoryButton">Desserts</button>
+          <button className="categoryButton">A La Carte</button>
+          <button className="categoryButton">Specials</button>
+        </div>
+      </section>
     </main>
-  </div>
-);
+  );
+};
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <img src="./logo.svg" className="App-logo" alt="logo" />
-          <Header />
-        </header>
-        <nav className="App-nav-bar">
-          <Nav />
-          <Link to="/">Home</Link>
-          <Link to="/booking">Book a Table</Link>
+        {/* Navigation */}
+        <nav className="nav">
+          <Link to="/" className="navLink">
+            Home
+          </Link>
+          <Link to="/booking" className="navLink">
+            Book a Table
+          </Link>
         </nav>
-        <main className="App-main">
+
+        {/* Main Routes */}
+        <main className="main">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/booking" element={<Main />} />
           </Routes>
         </main>
-        <footer className="App-footer">
+
+        {/* Footer */}
+        <footer className="footer">
           <Footer />
         </footer>
       </div>
     </Router>
   );
 }
-
 export default App;

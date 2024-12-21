@@ -22,9 +22,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
 
   return (
     <main>
-      <header>
-        <h1>Book Your Table</h1>
-      </header>
+      
       <Formik
         initialValues={{
           reservationDate: "",
